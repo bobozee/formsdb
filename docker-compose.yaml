@@ -1,0 +1,28 @@
+services:
+  formsdb:
+    image: formsdb:latest
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URL: "mongodb://mongodb:27017/formsdb"
+      # Uncomment the line to enable https mode. Make sure to uncomment the lines in "volumes" too.
+      #HTTPS: true 
+    volumes:
+      #PATH_TO_SSL_CRT:/home/formsdb/server.crt
+      #PATH_TO_SSL_KEY:/home/formsdb/server.key
+      
+      # Uncomment the line to replace the response html.
+      #PATH_TO_RESPONSE_HTML:/home/formsdb/response.html
+    depends_on:
+      - mongodb    
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INIT_DATABASE: formsdb
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
