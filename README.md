@@ -35,7 +35,7 @@ The server does **not** have any security features to prevent abuse or spam, apa
 
 ## Setup
 
-Make sure you have a mongodb instance ready. Alternatively, the `docker-compose.yml` (for http) or `docker-compose-https.yml` (for https) that ship with the sources can be used to quickly spin up a working default setup of the server + database.
+Make sure you have a mongodb instance ready. Alternatively, the `docker-compose.yml` that ship with the sources can be used to quickly spin up a working default setup of the server + database.
 
 **Note:** If running in https mode, make sure you also have a certificate ready. Per default, the server will try to find the key and certificate in the same directory, under the names `server.key` and `server.crt`, respectively. This can be changed in the setup arguments.
 
